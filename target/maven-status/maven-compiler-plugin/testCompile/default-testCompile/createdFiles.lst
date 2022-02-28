@@ -1,0 +1,9 @@
+setups/Hook.class
+pages/CheckoutPage.class
+pages/OpenWebPage.class
+setups/BrowserPool.class
+steps/OpenWebStep.class
+steps/CheckoutStep.class
+setups/BrowserSetup.class
+helpers/Runner.class
+helpers/ScreenAction.class
