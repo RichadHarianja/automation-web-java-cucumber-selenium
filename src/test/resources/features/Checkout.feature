@@ -13,6 +13,10 @@ Feature: Checkout feature
     Then I click login button
     Then I click search field
     And I input the "<fruits>"
+    Then I press Enter
+    Then I click add to chart
+    Then I click chart
+    And I click checkout product
 
     Examples:
       | email  | password  | fruits |
