@@ -20,7 +20,7 @@
         <selenium.api>4.1.0</selenium.api>
         <testng>7.4.0</testng>
         <junit>4.13.2</junit>
-        <cucumber.java.version>6.9.1</cucumber.java.version>
+        <cucumber.java.version>7.11.1</cucumber.java.version>
     </properties>
 
     <dependencies>
@@ -35,14 +35,9 @@
             <version>${selenium.chrome.driver}</version>
         </dependency>
         <dependency>
-            <groupId>info.cukes</groupId>
+            <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit</artifactId>
-            <version>${cucumber.junit}</version>
-        </dependency>
-        <dependency>
-            <groupId>info.cukes</groupId>
-            <artifactId>cucumber-java</artifactId>
-            <version>${cucumber.java}</version>
+            <version>7.11.1</version>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
@@ -50,14 +45,14 @@
             <version>${cucumber.java.version}</version>
         </dependency>
         <dependency>
-            <groupId>info.cukes</groupId>
+            <groupId>io.cucumber</groupId>
             <artifactId>cucumber-core</artifactId>
-            <version>${cucumber.core}</version>
+            <version>7.11.1</version>
         </dependency>
         <dependency>
-            <groupId>info.cukes</groupId>
+            <groupId>io.cucumber</groupId>
             <artifactId>gherkin</artifactId>
-            <version>${gherkin}</version>
+            <version>26.0.1</version>
         </dependency>
         <dependency>
             <groupId>io.appium</groupId>

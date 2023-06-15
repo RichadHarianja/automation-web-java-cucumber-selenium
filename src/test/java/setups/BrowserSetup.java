@@ -10,6 +10,7 @@ public class BrowserSetup extends BrowserPool {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("incognito");
+        options.addArguments("--remote-allow-origins=*");
         browser = new ChromeDriver(options);
         browser.manage().window().maximize();
         setBrowserInstance(browser);

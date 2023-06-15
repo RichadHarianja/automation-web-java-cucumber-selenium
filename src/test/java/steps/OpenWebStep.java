@@ -1,7 +1,6 @@
 package steps;
 
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
+import io.cucumber.java.en.*;
 import pages.OpenWebPage;
 
 import static setups.BrowserPool.getBrowserInstance;

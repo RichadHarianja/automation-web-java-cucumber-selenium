@@ -1,6 +1,6 @@
 package helpers;
 
-import cucumber.api.Scenario;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.AfterStep;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -12,6 +12,6 @@ public class ScreenAction {
     public void screenShot(Scenario scenario){
         TakesScreenshot take = (TakesScreenshot) getBrowserInstance();
         byte[] tempImg = take.getScreenshotAs(OutputType.BYTES);
-        scenario.embed(tempImg, "image/png");
+        scenario.attach(tempImg, "image/png", "image");
     }
 }
