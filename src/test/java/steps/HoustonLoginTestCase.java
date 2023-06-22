@@ -18,5 +18,17 @@ public class HoustonLoginTestCase {
 	  loginPage.setPassword();
 	  loginPage.clickSubmit();
 	}
+	
+	@When("^user click coin in Setting menu$")
+	public void navigateToCoinMenu() {
+		loginPage.scrollDown();
+		loginPage.clickCoin();
+	}
+	
+	@And("^validate table, button, field, listing coin$")
+	public void validateCoinMenu()
+	{
+		loginPage.checkElements();
+	}
 
 }
