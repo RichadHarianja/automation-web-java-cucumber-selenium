@@ -5,7 +5,6 @@ import static setups.BrowserPool.getBrowserInstance;
 
 import io.cucumber.java.en.*;
 import pages.HoustonAddNewCoin;
-import pages.HoustonLogin;
 
 public class addNewCoin {
 	
@@ -17,10 +16,22 @@ public class addNewCoin {
 		coinPage.clickAddCoin();
 	}
 	
-	@Then("^validate radio button Active, use Memo, Hide deposit & WD on Apps$")
+	@Then("^validate radio button Active, use Memo, Hide deposit & WD on Apps, Name, Ticker, Feature Level, Decimal Precision, Coin Icon$")
 	public void validateRadioMemoDepositApps()
 	{
 		coinPage.validateItems();
+	}
+	
+	@And("^validate btn Submit,and Cancel$")
+	public void validateButtons()
+	{
+		coinPage.validateButton();
+	}
+	
+	@And("^user fill the field$")
+	public void fillCoinField()
+	{
+		coinPage.fillField();
 	}
 	
 
