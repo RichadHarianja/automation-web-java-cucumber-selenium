@@ -36,9 +36,9 @@ public class HoustonAddNewCoin {
     @FindBy(xpath = "//*[@id=\"__layout\"]/div/div[2]/div[2]/div/main/div/div/div[2]/div/div/div/form/div[7]/div/div/div/div[3]/div/div/label/span")
 	private WebElement hideDepositButton;
     
-    @FindBy(xpath = "//select[@class='form-control form-control-sm']")
-    private WebElement featureLevelDropdown;
     
+    @FindBy(xpath = "//*[@id=\"__layout\"]/div/div[2]/div[2]/div/main/div/div/div[2]/div/div/div/form/div[4]/div/div/div/div[3]/div/div/div/select")
+    private WebElement featureLevelDropdown;
     
     
     public void clickAddCoin()
@@ -48,8 +48,9 @@ public class HoustonAddNewCoin {
     
     public void validateItems()
     {
-    	browser.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-    	browser.findElement(By.xpath(relativeXpath.xpathByDiv(ValueAttribute.divTextByActive.label))).isDisplayed();
+    	browser.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    	System.out.println("Here");
+    	browser.findElement(By.xpath(relativeXpath.xpathByDivContainsText(ValueAttribute.divTextByActive.label))).isDisplayed();
     	browser.findElement(By.xpath(relativeXpath.xpathByDiv(ValueAttribute.divTextByName.label))).isDisplayed();
     	browser.findElement(By.xpath(relativeXpath.xpathByDiv(ValueAttribute.divTextByTicker.label))).isDisplayed();
     	browser.findElement(By.xpath(relativeXpath.xpathByDiv(ValueAttribute.divTextByFeatureLevel.label))).isDisplayed();
@@ -80,13 +81,13 @@ public class HoustonAddNewCoin {
 
     	int randDropdown = rand.nextInt(FEATURE_LEVEL_DROPDOWN);
     	
-    	Select s = new Select(browser.findElement(By.xpath("//option[@value='"+randDropdown+"']")));
+    	Select s = new Select(featureLevelDropdown);
     	
     	browser.findElement(By.xpath(relativeXpath.xpathByPlaceholder(ValueAttribute.inputCoinName.label))).sendKeys(coinName);
     	
     	browser.findElement(By.xpath(relativeXpath.xpathByPlaceholder(ValueAttribute.inputTicker.label))).sendKeys(coinName);
     	
-    	s.selectByIndex(randDropdown);
+    	s.selectByValue(String.valueOf(randDropdown));
     }
 
 }
