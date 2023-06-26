@@ -13,6 +13,9 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.JavascriptExecutor;
+
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.concurrent.TimeUnit;
 import java.util.Random;
 import org.openqa.selenium.support.ui.Select;
@@ -49,7 +52,6 @@ public class HoustonAddNewCoin {
     public void validateItems()
     {
     	browser.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    	System.out.println("Here");
     	browser.findElement(By.xpath(relativeXpath.xpathByDivContainsText(ValueAttribute.divTextByActive.label))).isDisplayed();
     	browser.findElement(By.xpath(relativeXpath.xpathByDiv(ValueAttribute.divTextByName.label))).isDisplayed();
     	browser.findElement(By.xpath(relativeXpath.xpathByDiv(ValueAttribute.divTextByTicker.label))).isDisplayed();
@@ -69,25 +71,29 @@ public class HoustonAddNewCoin {
     	browser.findElement(By.xpath(relativeXpath.xpathByDiv(ValueAttribute.cancel.label))).isDisplayed();
     }
     
-    public void fillField()
-    {
-    	
-
+    public void fillField() throws AWTException, InterruptedException {
     	int FEATURE_LEVEL_DROPDOWN = 10;
-
     	Random rand = new Random();
-    	
     	String coinName = "COIN-TEST" + rand.nextInt();
-
     	int randDropdown = rand.nextInt(FEATURE_LEVEL_DROPDOWN);
-    	
-    	Select s = new Select(featureLevelDropdown);
-    	
-    	browser.findElement(By.xpath(relativeXpath.xpathByPlaceholder(ValueAttribute.inputCoinName.label))).sendKeys(coinName);
-    	
-    	browser.findElement(By.xpath(relativeXpath.xpathByPlaceholder(ValueAttribute.inputTicker.label))).sendKeys(coinName);
-    	
-    	s.selectByValue(String.valueOf(randDropdown));
-    }
+		Robot robotKeyboard = new Robot();
+
+		WebElement dropdownFeatureLevel = browser.findElement(By.xpath("//select"));
+
+		browser.findElement(By.xpath(relativeXpath.xpathByPlaceholder(ValueAttribute.inputCoinName.label))).sendKeys(coinName);
+		browser.findElement(By.xpath(relativeXpath.xpathByPlaceholder(ValueAttribute.inputTicker.label))).sendKeys(coinName);
+		dropdownFeatureLevel.click();
+		for (int i = 0; i<= randDropdown ; i++){
+			robotKeyboard.keyPress(KeyEvent.VK_DOWN);
+		}
+		robotKeyboard.keyPress(KeyEvent.VK_ENTER);
+
+		Thread.sleep(30000);
+
+		/* Other Method That Can Be Used
+		JavascriptExecutor js = (JavascriptExecutor) browser;
+		js.executeScript("arguments[0].value='"+randDropdown+"'", dropdownFeatureLevel);
+		*/
+	}
 
 }

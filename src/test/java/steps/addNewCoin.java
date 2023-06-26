@@ -6,6 +6,8 @@ import static setups.BrowserPool.getBrowserInstance;
 import io.cucumber.java.en.*;
 import pages.HoustonAddNewCoin;
 
+import java.awt.*;
+
 public class addNewCoin {
 	
 	HoustonAddNewCoin coinPage = new HoustonAddNewCoin(getBrowserInstance());
@@ -31,7 +33,13 @@ public class addNewCoin {
 	@And("^user fill the field$")
 	public void fillCoinField()
 	{
-		coinPage.fillField();
+		try {
+			coinPage.fillField();
+		}  catch (AWTException e) {
+			throw new RuntimeException(e);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 	}
 	
 

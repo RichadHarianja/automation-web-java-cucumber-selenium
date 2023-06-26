@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "classpath:features/NobiHoustonLogin.feature", 
+        features = "classpath:features/SuccessAddNewCoin.feature",
         glue = {""},
         plugin = {"pretty","json:target/cucumber.json","html:target/report/report.html"},
         monochrome = true
