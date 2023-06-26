@@ -10,7 +10,7 @@ public enum ValueAttribute {
 	divTextByDetail("Detail"),
 	divAddCoin("Add Coin"),
 	searchCoin("Search coin"),
-	divTextByActive("Actve"),
+	divTextByActive("Active"),
 	divTextByDecimalPrecision("Decimal Precision"),
 	divTextByUseMemo("Use Memo"),
 	divTextByHideDeposit("Hide Deposit & WD on App"),
