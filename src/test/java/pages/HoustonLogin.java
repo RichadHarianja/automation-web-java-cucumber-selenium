@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.JavascriptExecutor;
 import java.util.concurrent.TimeUnit;
+import java.util.*;
 
 
 public class HoustonLogin {
@@ -49,6 +50,30 @@ public class HoustonLogin {
     public void clickSubmit()
     {
     	submitButton.click();
+    	browser.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    	String parentWindowHandler = browser.getWindowHandle(); // Store your parent window
+		String subWindowHandler = null;
+
+		Set<String> handles = browser.getWindowHandles(); // get all window handles
+		Iterator<String> iterator = handles.iterator();
+		while (iterator.hasNext()){
+		    subWindowHandler = iterator.next();
+		}
+		browser.switchTo().window(subWindowHandler); // switch to popup window
+
+		// Now you are in the popup window, perform necessary actions here
+
+		
+    	if (browser.findElement(By.className("modal-content")).isDisplayed())
+    	{
+    		
+    		browser.findElement(By.xpath(relativeXpath.xpathByDivContainsText(ValueAttribute.confirmLogin.label))).click();
+    		System.out.println("Here 1");
+    		
+    	}
+    	
+    	browser.switchTo().window(parentWindowHandler);  // switch back to parent window
+    			
     }
     
     public void scrollDown()

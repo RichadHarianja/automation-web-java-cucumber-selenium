@@ -19,7 +19,9 @@ public enum ValueAttribute {
 	inputTicker("Input ticker"),
 	selectFeatureLevel("Select feature level"),
 	submit("Submit"),
-	cancel("Cancel");
+	cancel("Cancel"),
+	activeSession("Active session is detected on another device and will be logged out."),
+	confirmLogin("Yes");
 	
 
     public final String label;
