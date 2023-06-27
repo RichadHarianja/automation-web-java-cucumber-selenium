@@ -76,24 +76,25 @@ public class HoustonAddNewCoin {
     	Random rand = new Random();
     	String coinName = "COIN-TEST" + rand.nextInt();
     	int randDropdown = rand.nextInt(FEATURE_LEVEL_DROPDOWN);
-		Robot robotKeyboard = new Robot();
+		//Robot robotKeyboard = new Robot();
 
 		WebElement dropdownFeatureLevel = browser.findElement(By.xpath("//select"));
 
 		browser.findElement(By.xpath(relativeXpath.xpathByPlaceholder(ValueAttribute.inputCoinName.label))).sendKeys(coinName);
 		browser.findElement(By.xpath(relativeXpath.xpathByPlaceholder(ValueAttribute.inputTicker.label))).sendKeys(coinName);
-		dropdownFeatureLevel.click();
-		for (int i = 0; i<= randDropdown ; i++){
-			robotKeyboard.keyPress(KeyEvent.VK_DOWN);
-		}
-		robotKeyboard.keyPress(KeyEvent.VK_ENTER);
+//		dropdownFeatureLevel.click();
+//		for (int i = 0; i<= randDropdown ; i++){
+//			robotKeyboard.keyPress(KeyEvent.VK_DOWN);
+//		}
+//		robotKeyboard.keyPress(KeyEvent.VK_ENTER);
 
-		Thread.sleep(30000);
 
-		/* Other Method That Can Be Used
+		// Other Method That Can Be Used
 		JavascriptExecutor js = (JavascriptExecutor) browser;
 		js.executeScript("arguments[0].value='"+randDropdown+"'", dropdownFeatureLevel);
-		*/
-	}
+		
+		Thread.sleep(10000);
+
+    }
 
 }

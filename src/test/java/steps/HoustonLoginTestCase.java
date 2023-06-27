@@ -12,7 +12,7 @@ public class HoustonLoginTestCase {
 	HoustonLogin loginPage = new HoustonLogin(getBrowserInstance());
 
 	@Given("^user login in Houston Page$")
-	public void userOpenNobiLogin() {
+	public void userOpenNobiLogin() throws InterruptedException {
 	  getBrowserInstance().navigate().to("http://dev-houston.honestmining.org/login");
 	  loginPage.setEmail();
 	  loginPage.setPassword();
@@ -26,7 +26,7 @@ public class HoustonLoginTestCase {
 	}
 	
 	@And("^validate table, button, field, listing coin$")
-	public void validateCoinMenu()
+	public void validateCoinMenu() throws InterruptedException
 	{
 		loginPage.checkElements();
 	}

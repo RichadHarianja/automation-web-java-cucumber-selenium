@@ -47,17 +47,36 @@ public class HoustonLogin {
         browser.findElement(By.xpath(relativeXpath.xpathByPlaceholder(ValueAttribute.password.label))).sendKeys("1nkqcSJU");
     }
     
-    public void clickSubmit()
+    public void clickSubmit() throws InterruptedException
     {
     	submitButton.click();
-        try {
-            if (browser.findElement(By.className("modal-content")).isDisplayed())
-                {
-                    browser.findElement(By.xpath(relativeXpath.xpathByDivContainsText(ValueAttribute.confirmLogin.label))).click();
-                }
-        } catch (Exception e){
-            System.out.println("Unable to locate element");
-            e.getMessage();
+    	
+    	Thread.sleep(20000);
+    	
+//    	boolean popUpDisplayed = browser.findElement(By.className("modal-content")).isDisplayed();
+//    	if (popUpDisplayed)
+//    	{
+//    		System.out.println("Here 1");
+//    	}
+//    	
+//    	else
+//    	{
+//    		System.out.println("Here 2");
+//    	}
+    	
+    	try
+    	{
+    		if (browser.findElement(By.className("modal-content")).isDisplayed())
+            {
+                browser.findElement(By.xpath(relativeXpath.xpathByDivContainsText(ValueAttribute.confirmLogin.label))).click();
+            }
+    	}
+        
+        
+        catch (Exception e)
+        {
+        	System.out.println("Unable to locate element");
+        	e.getMessage();
         }
     }
     
@@ -77,9 +96,10 @@ public class HoustonLogin {
     	coinButton.click();
     }
     
-    public void checkElements()
+    public void checkElements() throws InterruptedException
     {
-    	browser.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    	//browser.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    	Thread.sleep(30000);
     	browser.findElement(By.xpath(relativeXpath.xpathByDiv(ValueAttribute.divTextByName.label))).isDisplayed();
     	browser.findElement(By.xpath(relativeXpath.xpathByDiv(ValueAttribute.divTextByTicker.label))).isDisplayed();
     	browser.findElement(By.xpath(relativeXpath.xpathByDiv(ValueAttribute.divTextByFeatureLevel.label))).isDisplayed();
