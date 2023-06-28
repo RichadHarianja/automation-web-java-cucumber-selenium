@@ -2,8 +2,6 @@ package steps;
 
 import static setups.BrowserPool.getBrowserInstance;
 
-//import cucumber.api.java.en.Given;
-//import cucumber.api.java.en.Then;
 import io.cucumber.java.en.*;
 import pages.HoustonLogin;
 

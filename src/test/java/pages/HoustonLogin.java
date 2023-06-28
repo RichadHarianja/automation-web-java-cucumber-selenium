@@ -51,18 +51,8 @@ public class HoustonLogin {
     {
     	submitButton.click();
     	
-    	Thread.sleep(20000);
-    	
-//    	boolean popUpDisplayed = browser.findElement(By.className("modal-content")).isDisplayed();
-//    	if (popUpDisplayed)
-//    	{
-//    		System.out.println("Here 1");
-//    	}
-//    	
-//    	else
-//    	{
-//    		System.out.println("Here 2");
-//    	}
+    	Thread.sleep(10000);
+
     	
     	try
     	{
@@ -99,7 +89,7 @@ public class HoustonLogin {
     public void checkElements() throws InterruptedException
     {
     	//browser.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    	Thread.sleep(30000);
+    	Thread.sleep(10000);
     	browser.findElement(By.xpath(relativeXpath.xpathByDiv(ValueAttribute.divTextByName.label))).isDisplayed();
     	browser.findElement(By.xpath(relativeXpath.xpathByDiv(ValueAttribute.divTextByTicker.label))).isDisplayed();
     	browser.findElement(By.xpath(relativeXpath.xpathByDiv(ValueAttribute.divTextByFeatureLevel.label))).isDisplayed();

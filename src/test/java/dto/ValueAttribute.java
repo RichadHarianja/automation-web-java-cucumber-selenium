@@ -21,7 +21,11 @@ public enum ValueAttribute {
 	submit("Submit"),
 	cancel("Cancel"),
 	activeSession("Active session is detected on another device and will be logged out."),
-	confirmLogin("Yes");
+	confirmLogin("Yes"),
+	searchCoinName("Search coin"),
+	updateButton("Update"),
+	decimalPrecisionInput("Decimal precision"),
+	confirm("Confirm");
 	
 
     public final String label;
